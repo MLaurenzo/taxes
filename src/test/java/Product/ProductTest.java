@@ -24,7 +24,7 @@ public class ProductTest {
 
     @Test
     public void do_not_taxe_medecine() {
-        Product product = new Book(100);
+        Product product = new Medecine(100);
         Assert.assertEquals(100, product.calculatePrice());
     }
 

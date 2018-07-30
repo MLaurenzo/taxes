@@ -6,7 +6,7 @@ public class Food extends Product {
     }
 
     @Override
-    protected int getProductTaxe() {
+    protected int getProductTaxeInPercentage() {
         return 0;
     }
 }

@@ -1,5 +1,7 @@
 package Product;
 
+import taxes.TaxeCalculator;
+
 /**
  * This class describes a product.
  *
@@ -18,11 +20,19 @@ public class Product {
         this.isImported = isImported;
     }
 
-    protected int getProductTaxe() {
+    protected int getProductTaxeInPercentage() {
         return 10;
     }
 
     public int calculatePrice() {
-        return price + price*getProductTaxe()/100 + (isImported ? 5 : 0)*price/100;
+        return price + getProductTaxe() + getImportationTaxe();
+    }
+
+    private int getProductTaxe() {
+        return TaxeCalculator.roundTaxe(price*getProductTaxeInPercentage()/100);
+    }
+
+    private int getImportationTaxe() {
+        return TaxeCalculator.roundTaxe((isImported ? 5 : 0)*price/100);
     }
 }
