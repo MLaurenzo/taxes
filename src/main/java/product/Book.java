@@ -1,7 +1,7 @@
-package Product;
+package product;
 
-public class Food extends Product {
-    public Food(int price) {
+public class Book extends Product {
+    public Book(int price) {
         super(price);
     }
 
