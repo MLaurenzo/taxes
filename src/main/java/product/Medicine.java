@@ -1,7 +1,7 @@
 package product;
 
-public class Medecine extends Product {
-    public Medecine(String name, int price) {
+public class Medicine extends Product {
+    public Medicine(String name, int price) {
         super(name, price);
     }
 

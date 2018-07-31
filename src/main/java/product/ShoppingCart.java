@@ -16,7 +16,7 @@ public class ShoppingCart {
             .map(product -> product.toString())
             .reduce((a, b) -> a.toString() + '\n' + b.toString())
             .get()
-            + "\nTaxes: " + products.stream().mapToInt(Product::getTaxe).sum()
-            + "\nTotal: " + products.stream().mapToInt(Product::calculatePrice).sum();
+            + "\nTaxes: " + products.stream().mapToInt(TaxeCalculator::calculateTaxes).sum()
+            + "\nTotal: " + products.stream().mapToInt(TaxeCalculator::calculatePrice).sum();
     }
 }

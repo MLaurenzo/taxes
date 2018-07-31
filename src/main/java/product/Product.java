@@ -1,7 +1,5 @@
 package product;
 
-import taxes.TaxeCalculator;
-
 /**
  * This class describes a product.
  *
@@ -10,7 +8,7 @@ import taxes.TaxeCalculator;
  */
 public class Product {
     private final String name;
-    private int price;
+    int price;
     private boolean isImported = false;
 
     public Product(String name, int price) {
@@ -27,24 +25,12 @@ public class Product {
         return 10;
     }
 
-    public int calculatePrice() {
-        return price + getTaxe();
-    }
-
-    private int getProductTaxe() {
-        return TaxeCalculator.roundTaxe(price*getProductTaxeInPercentage()/100);
-    }
-
-    private int getImportationTaxe() {
-        return TaxeCalculator.roundTaxe((isImported ? 5 : 0)*price/100);
-    }
-
-    public int getTaxe() {
-        return getProductTaxe() + getImportationTaxe();
+    boolean isImported() {
+        return isImported;
     }
 
     @Override
     public String toString() {
-        return name + ": " + calculatePrice();
+        return name + ": " + TaxeCalculator.calculatePrice(this);
     }
 }
