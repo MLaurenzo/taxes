@@ -1,8 +1,8 @@
 package product;
 
 public class Medecine extends Product {
-    public Medecine(int price) {
-        super("Medecine", price);
+    public Medecine(String name, int price) {
+        super(name, price);
     }
 
     @Override
