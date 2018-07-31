@@ -6,7 +6,7 @@ public class Medicine extends Product {
     }
 
     @Override
-    protected int getProductTaxeInPercentage() {
+    public int getProductTaxeInPercentage() {
         return 0;
     }
 }

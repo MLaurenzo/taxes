@@ -2,7 +2,7 @@ package taxes;
 
 import org.junit.Assert;
 import org.junit.Test;
-import product.TaxeCalculator;
+import shopping.TaxeCalculator;
 
 public class TaxeCalculatorTest {
     @Test

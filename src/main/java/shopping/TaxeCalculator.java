@@ -1,4 +1,6 @@
-package product;
+package shopping;
+
+import product.Product;
 
 /**
  * The goal of this class is to handle all taxes calculation.
@@ -8,21 +10,21 @@ public class TaxeCalculator {
      * The price of the product plus the taxes.
      */
     public static int calculatePrice(Product product) {
-        return product.price + calculateTaxes(product);
+        return product.getPrice() + calculateTaxes(product);
     }
 
     /**
      * The product tax plus the imported tax.
      */
     public static int calculateTaxes(Product product) {
-        return calculateProductTax(product) + calculateImportedTax(product.isImported(), product.price);
+        return calculateProductTax(product) + calculateImportedTax(product.isImported(), product.getPrice());
     }
 
     /**
      * 10% tax on all product except books, food and medicine.
      */
     private static int calculateProductTax(Product product) {
-        return roundTax(product.price * product.getProductTaxeInPercentage() / 100);
+        return roundTax(product.getPrice() * product.getProductTaxeInPercentage() / 100);
     }
 
     /**

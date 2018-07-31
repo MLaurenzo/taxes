@@ -1,6 +1,7 @@
 package product;
 
 import shopping.PriceRenderer;
+import shopping.TaxeCalculator;
 
 /**
  * This class describes a product.
@@ -23,11 +24,15 @@ public class Product {
         return product;
     }
 
-    protected int getProductTaxeInPercentage() {
+    public int getProductTaxeInPercentage() {
         return 10;
     }
 
-    boolean isImported() {
+    public int getPrice() {
+        return price;
+    }
+
+    public boolean isImported() {
         return isImported;
     }
 
