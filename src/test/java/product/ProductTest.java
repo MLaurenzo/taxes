@@ -30,15 +30,13 @@ public class ProductTest {
 
     @Test
     public void taxe_imported_book() {
-        Product product = new Book(100);
-        product.setIsImported(true);
+        Product product = Product.Imported(new Book(100));
         Assert.assertEquals(105, product.calculatePrice());
     }
 
     @Test
     public void taxe_imported_product() {
-        Product product = new Product(null, 100);
-        product.setIsImported(true);
+        Product product = Product.Imported(new Product(null, 100));
         Assert.assertEquals(115, product.calculatePrice());
     }
 }

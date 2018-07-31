@@ -19,12 +19,8 @@ public class Product {
     }
 
     public static Product Imported(Product product) {
-        product.setIsImported(true);
+        product.isImported = true;
         return product;
-    }
-
-    public void setIsImported(boolean isImported) {
-        this.isImported = isImported;
     }
 
     protected int getProductTaxeInPercentage() {
