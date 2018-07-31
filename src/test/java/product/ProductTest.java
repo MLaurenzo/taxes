@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ProductTest {
     @Test
     public void taxes_10_percent_on_product() {
-        Product product =  new Product(100);
+        Product product =  new Product(null, 100);
         Assert.assertEquals(110, product.calculatePrice());
     }
 
@@ -18,7 +18,7 @@ public class ProductTest {
 
     @Test
     public void do_not_taxe_food() {
-        Product product = new Food(100);
+        Product product = new ChocolateBar(100);
         Assert.assertEquals(100, product.calculatePrice());
     }
 
@@ -37,7 +37,7 @@ public class ProductTest {
 
     @Test
     public void taxe_imported_product() {
-        Product product = new Product(100);
+        Product product = new Product(null, 100);
         product.setIsImported(true);
         Assert.assertEquals(115, product.calculatePrice());
     }

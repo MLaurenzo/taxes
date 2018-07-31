@@ -2,7 +2,7 @@ package product;
 
 public class Medecine extends Product {
     public Medecine(int price) {
-        super(price);
+        super("Medecine", price);
     }
 
     @Override

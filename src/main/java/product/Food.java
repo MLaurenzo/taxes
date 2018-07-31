@@ -1,8 +1,8 @@
 package product;
 
 public class Food extends Product {
-    public Food(int price) {
-        super(price);
+    public Food(String name, int price) {
+        super(name, price);
     }
 
     @Override

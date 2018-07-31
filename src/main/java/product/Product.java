@@ -9,11 +9,18 @@ import taxes.TaxeCalculator;
  * e.g.: 1,30 euro is stored as 130
  */
 public class Product {
+    private final String name;
     private int price;
     private boolean isImported = false;
 
-    public Product(int price) {
+    public Product(String name, int price) {
+        this.name = name;
         this.price = price;
+    }
+
+    public static Product Imported(Product product) {
+        product.setIsImported(true);
+        return product;
     }
 
     public void setIsImported(boolean isImported) {
@@ -25,7 +32,7 @@ public class Product {
     }
 
     public int calculatePrice() {
-        return price + getProductTaxe() + getImportationTaxe();
+        return price + getTaxe();
     }
 
     private int getProductTaxe() {
@@ -34,5 +41,14 @@ public class Product {
 
     private int getImportationTaxe() {
         return TaxeCalculator.roundTaxe((isImported ? 5 : 0)*price/100);
+    }
+
+    public int getTaxe() {
+        return getProductTaxe() + getImportationTaxe();
+    }
+
+    @Override
+    public String toString() {
+        return name + ": " + calculatePrice();
     }
 }
