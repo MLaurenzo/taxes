@@ -14,7 +14,7 @@ public class TaxeCalculator {
     /**
      * The product tax plus the imported tax.
      */
-    static int calculateTaxes(Product product) {
+    public static int calculateTaxes(Product product) {
         return calculateProductTax(product) + calculateImportedTax(product.isImported(), product.price);
     }
 

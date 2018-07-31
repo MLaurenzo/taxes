@@ -1,4 +1,7 @@
-package product;
+package shopping;
+
+import product.Product;
+import product.TaxeCalculator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,7 @@ public class ShoppingCart {
             .map(product -> product.toString())
             .reduce((a, b) -> a.toString() + '\n' + b.toString())
             .get()
-            + "\nTaxes: " + products.stream().mapToInt(TaxeCalculator::calculateTaxes).sum()
-            + "\nTotal: " + products.stream().mapToInt(TaxeCalculator::calculatePrice).sum();
+            + "\nTaxes: " + PriceRenderer.render(products.stream().mapToInt(TaxeCalculator::calculateTaxes).sum())
+            + "\nTotal: " + PriceRenderer.render(products.stream().mapToInt(TaxeCalculator::calculatePrice).sum());
     }
 }

@@ -1,8 +1,10 @@
 package product;
 
+import shopping.PriceRenderer;
+
 /**
  * This class describes a product.
- *
+ * <p>
  * The price is stored as a integer (without coma).
  * e.g.: 1,30 euro is stored as 130
  */
@@ -31,6 +33,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return name + ": " + TaxeCalculator.calculatePrice(this);
+        return name + ": " + PriceRenderer.render(TaxeCalculator.calculatePrice(this));
     }
 }
